@@ -1,6 +1,5 @@
 import itertools
 import time
-import threading
 
 
 def formating_number(number, separator='.'):
