@@ -47,10 +47,16 @@ def count_control_condition_ascii(control_condition_ascii):
 
 
 def condition_ascii_to_char(control_condition_ascii):
-    ids = [list(range(a, b+1)) for a, b in control_condition_ascii]
-    id_to_char = [list(map(chr, l)) for l in ids]
-    return id_to_char
-
+    try:
+        ids = [list(range(a, b+1)) for a, b in control_condition_ascii]
+        id_to_char = [list(map(chr, l)) for l in ids]
+        return id_to_char
+    except:
+        if type(str()) == type(control_condition_ascii):
+            return list(control_condition_ascii)
+        else:
+            return list(map(str, control_condition_ascii))
+            
 
 def generator_password(control_condition_length, control_condition_ascii, mode):
     prepear_condition = list(sum(condition_ascii_to_char(control_condition_ascii), []))
